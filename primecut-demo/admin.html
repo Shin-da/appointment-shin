@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PrimeCut Barbershop admin booking management demo.">
+  <title>PrimeCut Barbershop Demo | Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/demo.css">
+</head>
+<body class="demo-body">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">PrimeCut Barbershop</a>
+      <nav class="main-nav" aria-label="Demo navigation">
+        <a href="index.html">Home</a>
+        <a href="booking.html">Book</a>
+        <a href="admin.html" aria-current="page">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="section">
+    <div class="container">
+      <section class="reveal admin-header">
+        <p class="eyebrow">Admin operations view</p>
+        <h1 class="page-title">Bookings dashboard</h1>
+        <p class="section-intro">Track requests, confirm appointments, and estimate today's revenue.</p>
+      </section>
+
+      <section class="metrics-grid reveal" aria-label="Daily metrics">
+        <article class="metric-card">
+          <p class="metric-label">Bookings today</p>
+          <p class="metric-value" id="metric-total">0</p>
+        </article>
+        <article class="metric-card">
+          <p class="metric-label">Pending</p>
+          <p class="metric-value" id="metric-pending">0</p>
+        </article>
+        <article class="metric-card">
+          <p class="metric-label">Confirmed</p>
+          <p class="metric-value" id="metric-confirmed">0</p>
+        </article>
+        <article class="metric-card">
+          <p class="metric-label">Estimated sales</p>
+          <p class="metric-value" id="metric-sales">$0</p>
+        </article>
+      </section>
+
+      <section class="table-card reveal">
+        <div class="table-head">
+          <h2>Booking list</h2>
+          <div class="table-actions">
+            <button id="seed-bookings" class="btn btn-small" type="button">Seed demo data</button>
+            <button id="clear-bookings" class="btn btn-small btn-ghost" type="button">Clear demo data</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Service</th>
+                <th>Preferred time</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="bookings-body"></tbody>
+          </table>
+        </div>
+        <p id="empty-state" class="form-note">No bookings yet. Submit one from the booking page.</p>
+      </section>
+    </div>
+  </main>
+
+  <script src="../assets/js/main.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

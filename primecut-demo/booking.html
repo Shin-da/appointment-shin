@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Book a PrimeCut Barbershop appointment.">
+  <title>PrimeCut Barbershop Demo | Booking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/demo.css">
+</head>
+<body class="demo-body">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">PrimeCut Barbershop</a>
+      <nav class="main-nav" aria-label="Demo navigation">
+        <a href="index.html">Home</a>
+        <a href="booking.html" aria-current="page">Book</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="section">
+    <div class="container booking-grid">
+      <section class="card reveal booking-panel">
+        <p class="eyebrow">Customer booking form</p>
+        <h1 class="page-title">Book an appointment</h1>
+        <p class="section-intro">Fill out your details and PrimeCut can confirm your slot quickly.</p>
+        <form id="booking-form" class="contact-form" novalidate>
+          <label for="customer-name">Name</label>
+          <input id="customer-name" name="name" type="text" required>
+
+          <label for="contact-number">Contact number</label>
+          <input id="contact-number" name="contactNumber" type="tel" inputmode="tel" required>
+
+          <label for="service">Service</label>
+          <select id="service" name="service" required>
+            <option value="">Select a service</option>
+            <option value="Classic Haircut">Classic Haircut</option>
+            <option value="Skin Fade">Skin Fade</option>
+            <option value="Beard Shave + Line Up">Beard Shave + Line Up</option>
+            <option value="Haircut + Beard Combo">Haircut + Beard Combo</option>
+          </select>
+
+          <label for="preferred-datetime">Preferred date and time</label>
+          <input id="preferred-datetime" name="preferredDateTime" type="datetime-local" required>
+
+          <button class="btn" type="submit">Submit booking</button>
+          <p id="booking-feedback" class="form-note" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <aside class="hero-note reveal booking-side-note">
+        <p class="panel-label">Booking process</p>
+        <h2>What happens next</h2>
+        <ul>
+          <li>Your request is saved instantly</li>
+          <li>Status starts as pending</li>
+          <li>PrimeCut confirms inside admin view</li>
+        </ul>
+        <a class="btn btn-ghost" href="admin.html">Go to admin view</a>
+      </aside>
+    </div>
+  </main>
+
+  <script src="../assets/js/main.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/booking.js"></script>
+</body>
+</html>
