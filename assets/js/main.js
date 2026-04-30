@@ -28,7 +28,7 @@
 
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const revealItems = document.querySelectorAll(".reveal");
-  const stagedItems = document.querySelectorAll(".card.reveal, .step.reveal");
+  const stagedItems = document.querySelectorAll(".package-card.reveal, .step.reveal");
 
   if (prefersReducedMotion) {
     revealItems.forEach((item) => item.classList.add("in-view"));
