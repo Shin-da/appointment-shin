@@ -1,422 +1,931 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Founder-led systems studio for appointment-based businesses in the Philippines. We build lead capture, booking, and admin workflows that reduce missed leads and speed follow-up.">
-  <meta name="robots" content="index,follow">
-  <meta name="author" content="Jeffmathew Garcia">
-  <meta name="theme-color" content="#0f172a">
-  <link rel="canonical" href="https://jmstudiodev.netlify.app/">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="JM Studio">
-  <meta property="og:title" content="JM Studio | Founder-Led Booking & Operations Systems">
-  <meta property="og:description" content="For appointment-based businesses in the Philippines: lead capture, booking, and admin workflows built for daily use.">
-  <meta property="og:url" content="https://jmstudiodev.netlify.app/">
-  <meta property="og:image" content="https://jmstudiodev.netlify.app/assets/jmstudio-og-image.png">
-  <meta property="og:image:secure_url" content="https://jmstudiodev.netlify.app/assets/jmstudio-og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="JM Studio social preview banner">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="JM Studio | Founder-Led Booking & Operations Systems">
-  <meta name="twitter:description" content="For appointment-based businesses in the Philippines: lead capture, booking, and admin workflows built for daily use.">
-  <meta name="twitter:url" content="https://jmstudiodev.netlify.app/">
-  <meta name="twitter:image" content="https://jmstudiodev.netlify.app/assets/jmstudio-og-image.png">
-  <title>JM Studio | Systems for Appointment-Based Businesses in PH</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Shin.dev builds custom appointment and booking systems for Philippine businesses — lead capture, booking workflows, and admin dashboards built for daily use.">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Jeffmathew Garcia — Shin.dev">
+<meta name="theme-color" content="#f5f3ef">
+<link rel="canonical" href="https://appointment.itsshin.dev/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Shin.dev">
+<meta property="og:title" content="Appointment Systems for Philippine Businesses — Shin.dev">
+<meta property="og:description" content="Custom booking and appointment systems built for Filipino businesses. Lead capture, scheduling, and admin workflows — without the enterprise price tag.">
+<meta property="og:url" content="https://appointment.itsshin.dev/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Appointment Systems for Philippine Businesses — Shin.dev">
+<meta name="twitter:description" content="Custom booking and appointment systems built for Filipino businesses.">
+<title>Appointment Systems — Shin.dev</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  /* Shared Shin.dev tokens */
+  --ink:        #0e0e0e;
+  --paper:      #f5f3ef;
+  --gold:       #c8a97e;
+  --gold-dark:  #a8865a;
+  --serif:      'DM Serif Display', Georgia, serif;
+  --sans:       'DM Sans', sans-serif;
+
+  /* Appointment-specific — warmer, lighter */
+  --bg:         #f7f4ef;
+  --surface:    #fdfbf8;
+  --surface-2:  #f0ece4;
+  --border:     rgba(0,0,0,0.09);
+  --text:       #1e1c18;
+  --muted:      #7a7163;
+  --accent:     #c8a97e;        /* gold — shared with itsshin.dev */
+  --accent-2:   #8c6d4f;        /* darker warm brown for this subdomain */
+  --line:       rgba(200,169,126,0.25);
+
+  --radius:     4px;
+  --radius-md:  6px;
+  --shadow:     0 8px 32px rgba(0,0,0,0.06);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+.container { max-width: 1080px; margin: 0 auto; padding: 0 2rem; }
+.narrow    { max-width: 680px; }
+
+/* ── LABEL ── */
+.label {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.13em; text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.9rem;
+}
+.label::before {
+  content: ''; display: block;
+  width: 20px; height: 1px; background: var(--accent);
+}
+
+/* ── NAV ── */
+.site-nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(247,244,239,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  min-height: 64px; gap: 1.5rem;
+}
+.nav-brand {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--ink);
+  display: flex; align-items: baseline; gap: 0.35rem;
+}
+.nav-brand .dot { color: var(--accent); }
+.nav-sub {
+  font-family: var(--sans);
+  font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted);
+  border-left: 1px solid var(--border);
+  padding-left: 0.75rem;
+  margin-left: 0.25rem;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 1.75rem;
+}
+.nav-links a {
+  font-size: 0.85rem; color: var(--muted);
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  font-size: 0.78rem; font-weight: 500;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  color: var(--accent) !important;
+  border: 1px solid rgba(200,169,126,0.5);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius);
+  transition: background 0.2s, color 0.2s !important;
+}
+.nav-cta:hover { background: var(--accent); color: #fff !important; }
+
+/* ── HERO ── */
+#hero {
+  padding: 7rem 0 5.5rem;
+  border-bottom: 1px solid var(--border);
+  position: relative; overflow: hidden;
+}
+.hero-bg-pattern {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.5;
+}
+.hero-glow {
+  position: absolute; bottom: -80px; right: -80px;
+  width: 480px; height: 480px;
+  background: radial-gradient(circle, rgba(200,169,126,0.10) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-inner { position: relative; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.75rem; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 1.5rem;
+}
+.hero-eyebrow::before {
+  content: ''; display: block;
+  width: 24px; height: 1px; background: var(--accent);
+}
+.hero-h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+  max-width: 700px;
+}
+.hero-h1 em { font-style: italic; color: var(--accent); }
+.hero-sub {
+  font-size: 1.05rem; font-weight: 300;
+  color: var(--muted);
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+}
+.hero-actions { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+
+/* buttons */
+.btn-primary {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.85rem; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 0.85rem 2rem;
+  border-radius: var(--radius);
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-primary:hover { background: var(--gold-dark); transform: translateY(-1px); }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  font-size: 0.875rem; color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.btn-ghost:hover { color: var(--ink); border-color: var(--muted); }
+
+/* hero signals */
+.hero-signals {
+  display: flex; gap: 2rem; flex-wrap: wrap;
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+.signal {
+  display: flex; align-items: flex-start; gap: 0.6rem;
+  font-size: 0.875rem; color: var(--muted);
+}
+.signal-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+  margin-top: 0.45rem; flex-shrink: 0;
+}
+
+/* ── PROBLEM ── */
+#problem {
+  padding: 5.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.problem-left h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.25rem;
+}
+.problem-left p {
+  font-size: 0.975rem; color: var(--muted);
+  font-weight: 300; line-height: 1.85;
+}
+.pain-list { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+.pain-list li {
+  display: flex; align-items: flex-start; gap: 0.75rem;
+  font-size: 0.9rem; color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+}
+.pain-x {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+/* ── WHAT YOU GET ── */
+#offer {
+  padding: 5.5rem 0;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.offer-header { margin-bottom: 3rem; }
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.offer-card {
+  background: var(--surface);
+  padding: 2rem 1.75rem;
+  transition: background 0.2s;
+}
+.offer-card:hover { background: var(--bg); }
+.offer-num {
+  font-family: var(--serif);
+  font-size: 2.5rem;
+  color: var(--line);
+  line-height: 1;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+.offer-card h3 {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.2;
+}
+.offer-card p {
+  font-size: 0.875rem; color: var(--muted);
+  line-height: 1.75; font-weight: 300;
+}
+.offer-tag {
+  display: inline-block; margin-top: 1rem;
+  font-size: 0.7rem; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ── HOW IT WORKS ── */
+#process {
+  padding: 5.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  counter-reset: step;
+  margin-top: 3rem;
+}
+.step {
+  position: relative;
+}
+.step-num {
+  font-family: var(--serif);
+  font-size: 3.5rem;
+  color: var(--line);
+  line-height: 1;
+  margin-bottom: 1rem;
+  display: block;
+}
+.step h3 {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  margin-bottom: 0.6rem;
+}
+.step p { font-size: 0.9rem; color: var(--muted); font-weight: 300; line-height: 1.8; }
+
+/* ── FIT CHECK ── */
+#fit {
+  padding: 5rem 0;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+.fit-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+}
+.fit-box.good { border-top: 2px solid var(--accent); }
+.fit-box.bad  { border-top: 2px solid #ccc; }
+.fit-box-label {
+  font-size: 0.7rem; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 1rem;
+}
+.fit-box.good .fit-box-label { color: var(--accent); }
+.fit-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.fit-list li {
+  font-size: 0.875rem; color: var(--text);
+  display: flex; align-items: flex-start; gap: 0.5rem;
+  line-height: 1.6;
+}
+.fit-list li::before {
+  content: '→';
+  color: var(--accent); flex-shrink: 0;
+  font-size: 0.75rem; margin-top: 0.15rem;
+}
+.fit-box.bad .fit-list li::before { content: '—'; color: var(--muted); }
+
+/* ── TESTIMONIALS ── */
+#social-proof {
+  padding: 5.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+.testimonial {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+}
+.testimonial blockquote {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+.testimonial cite {
+  font-size: 0.78rem; font-style: normal;
+  color: var(--muted); letter-spacing: 0.03em;
+}
+
+/* ── ABOUT ── */
+#about {
+  padding: 5.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.about-inner {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+.about-avatar {
+  width: 100%;
+  aspect-ratio: 1;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 0.25rem;
+}
+.avatar-initials {
+  font-family: var(--serif);
+  font-size: 3rem; color: var(--accent);
+  line-height: 1;
+}
+.avatar-sub {
+  font-size: 0.7rem; color: var(--muted);
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.about-right h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  line-height: 1.2; margin-bottom: 1rem;
+}
+.about-right p {
+  font-size: 0.975rem; color: var(--muted);
+  font-weight: 300; line-height: 1.85;
+  margin-bottom: 1rem;
+}
+.about-link {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  font-size: 0.85rem; font-weight: 500;
+  color: var(--accent);
+  border-bottom: 1px solid rgba(200,169,126,0.3);
+  padding-bottom: 2px;
+  margin-top: 0.5rem;
+  transition: border-color 0.2s;
+}
+.about-link:hover { border-color: var(--accent); }
+
+/* ── CONTACT ── */
+#contact {
+  padding: 6rem 0;
+  background: var(--ink);
+  position: relative; overflow: hidden;
+}
+.contact-bg {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(200,169,126,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,169,126,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+  position: relative;
+}
+.contact-left { }
+.contact-left .label { color: var(--accent); }
+.contact-left .label::before { background: var(--accent); }
+.contact-left h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  line-height: 1.15;
+  color: #fff;
+  margin-bottom: 1.25rem;
+}
+.contact-left p {
+  font-size: 0.975rem; color: rgba(255,255,255,0.5);
+  font-weight: 300; line-height: 1.85;
+  margin-bottom: 0.75rem;
+}
+.contact-info { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.contact-item {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-size: 0.875rem; color: rgba(255,255,255,0.55);
+}
+.contact-item a { color: var(--accent); transition: opacity 0.2s; }
+.contact-item a:hover { opacity: 0.8; }
+
+/* form */
+.contact-form { display: flex; flex-direction: column; gap: 1rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+label {
+  font-size: 0.75rem; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+input, select, textarea {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.25); }
+input:focus, select:focus, textarea:focus {
+  border-color: rgba(200,169,126,0.5);
+}
+select option { background: #1a1a1a; }
+textarea { resize: vertical; min-height: 100px; }
+.btn-submit {
+  margin-top: 0.5rem;
+  background: var(--accent);
+  color: var(--ink);
+  border: none;
+  font-family: var(--sans);
+  font-size: 0.85rem; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 0.9rem 2rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  text-align: left;
+}
+.btn-submit:hover { background: var(--gold-dark); transform: translateY(-1px); }
+.form-note {
+  font-size: 0.75rem; color: rgba(255,255,255,0.25);
+  line-height: 1.6; margin-top: 0.25rem;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding: 2rem 0;
+}
+.footer-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1.5rem; flex-wrap: wrap;
+}
+.footer-brand {
+  font-family: var(--serif);
+  font-size: 1rem; color: rgba(255,255,255,0.5);
+}
+.footer-brand span { color: var(--accent); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a {
+  font-size: 0.8rem; color: rgba(255,255,255,0.3);
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: rgba(255,255,255,0.7); }
+.footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.2); }
+
+/* ── REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .problem-grid,
+  .offer-grid,
+  .process-steps,
+  .fit-grid,
+  .testimonial-grid,
+  .about-inner,
+  .contact-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .offer-grid { gap: 1px; }
+  .nav-links { display: none; }
+  #hero { padding: 5rem 0 4rem; }
+  .hero-signals { gap: 1rem; }
+}
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <header class="site-header" id="top">
-    <div class="container nav-wrap">
-      <a class="brand" href="#top" aria-label="JM Studio home">
-        <img class="brand-logo brand-logo-light" src="assets/images/logos/jmstudio-lightmode-withname-transparent.png" alt="JM Studio logo">
-        <img class="brand-logo brand-logo-dark" src="assets/images/logos/jmstudio-darkmode-withname-transparent.png" alt="JM Studio logo">
+<!-- NAV -->
+<header class="site-nav">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="https://itsshin.dev" class="nav-brand">
+        Shin<span class="dot">.</span>dev
+        <span class="nav-sub">Appointment Systems</span>
       </a>
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="#offer-ladder">Offers</a>
-        <a href="#case-studies">Case studies</a>
+      <div class="nav-links">
+        <a href="#offer">What you get</a>
         <a href="#process">Process</a>
-        <a href="#fit">Fit check</a>
-        <a href="#contact" class="btn btn-small">Get 1-page System Plan</a>
-      </nav>
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme" aria-pressed="false">Dark mode</button>
-    </div>
-  </header>
+        <a href="#about">About</a>
+        <a href="#contact" class="nav-cta">Get in touch</a>
+      </div>
+    </nav>
+  </div>
+</header>
 
-  <main id="main-content">
-    <section class="hero section section--hero">
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">Founder-led systems studio for appointment-based businesses in the Philippines</p>
-          <h1>Turn missed inquiries into confirmed bookings in 14-30 days.</h1>
-          <p class="lead">I build your lead capture, booking, and admin workflow as one connected system, so your team replies faster, tracks every inquiry, and runs daily operations without spreadsheet chaos.</p>
-          <div class="hero-actions">
-            <a href="#contact" class="btn">Get your 1-page System Plan</a>
-            <a href="#case-studies" class="btn btn-ghost">See proof and results</a>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-glow"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Appointment Systems · Philippines</div>
+      <h1 class="hero-h1">
+        Stop losing clients<br>
+        to <em>missed messages</em><br>
+        and manual tracking.
+      </h1>
+      <p class="hero-sub">
+        I build custom booking and appointment systems for Philippine businesses — so you spend less time managing schedules and more time doing the work.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Let's talk about your system</a>
+        <a href="#offer" class="btn-ghost">See what's included ↓</a>
+      </div>
+
+      <div class="hero-signals">
+        <div class="signal"><span class="signal-dot"></span>Built for appointment-based businesses</div>
+        <div class="signal"><span class="signal-dot"></span>One developer, end to end — no agency chain</div>
+        <div class="signal"><span class="signal-dot"></span>Philippines-based, remote-ready</div>
+        <div class="signal"><span class="signal-dot"></span>Response within 24 hours</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="container">
+    <div class="problem-grid">
+      <div class="problem-left reveal">
+        <div class="label">The problem</div>
+        <h2>Your bookings are scattered.<br>Your follow-ups are late.</h2>
+        <p>Most appointment-based businesses in the Philippines manage bookings through Messenger, GCash screenshots, and spreadsheets. It works — until it doesn't. When volume grows, things fall through the cracks.</p>
+      </div>
+      <div class="reveal">
+        <ul class="pain-list">
+          <li><span class="pain-x">↯</span> Clients message at odd hours and don't get confirmed until the next day</li>
+          <li><span class="pain-x">↯</span> No single place to see today's appointments at a glance</li>
+          <li><span class="pain-x">↯</span> Follow-up reminders are done manually — or forgotten</li>
+          <li><span class="pain-x">↯</span> Double bookings happen because the schedule is split across devices</li>
+          <li><span class="pain-x">↯</span> No record of past clients, services, or revenue patterns</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section id="offer">
+  <div class="container">
+    <div class="offer-header reveal">
+      <div class="label">What's included</div>
+      <h2 style="font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.6rem);letter-spacing:-0.01em;margin-bottom:0.75rem;">A system your team actually uses.</h2>
+      <p style="font-size:0.975rem;color:var(--muted);font-weight:300;max-width:480px;">Not a template. Not a plugin. A custom workflow built around how your business actually runs.</p>
+    </div>
+    <div class="offer-grid">
+      <div class="offer-card reveal">
+        <div class="offer-num">01</div>
+        <h3>Lead Capture</h3>
+        <p>A booking form designed for your services — collects all the info you need upfront so there's no back-and-forth before confirming.</p>
+        <span class="offer-tag">Landing page ready</span>
+      </div>
+      <div class="offer-card reveal">
+        <div class="offer-num">02</div>
+        <h3>Booking Workflow</h3>
+        <p>Clients pick a time, you confirm with one click. Status updates (pending → confirmed → completed) are handled cleanly without manual messaging.</p>
+        <span class="offer-tag">No double bookings</span>
+      </div>
+      <div class="offer-card reveal">
+        <div class="offer-num">03</div>
+        <h3>Admin Dashboard</h3>
+        <p>See all appointments in one view — today, this week, by status. Know what needs follow-up before your day starts.</p>
+        <span class="offer-tag">Daily visibility</span>
+      </div>
+      <div class="offer-card reveal">
+        <div class="offer-num">04</div>
+        <h3>Client Records</h3>
+        <p>Every client's history, past services, and contact details in one place. No digging through old chats.</p>
+        <span class="offer-tag">Searchable history</span>
+      </div>
+      <div class="offer-card reveal">
+        <div class="offer-num">05</div>
+        <h3>Basic Reporting</h3>
+        <p>Monthly summaries, service breakdowns, and revenue snapshots so you can make decisions based on actual data.</p>
+        <span class="offer-tag">Month-end ready</span>
+      </div>
+      <div class="offer-card reveal">
+        <div class="offer-num">06</div>
+        <h3>Works on Any Device</h3>
+        <p>No app to install. Runs in a browser — desktop, tablet, or phone. Your team can use it from day one without training headaches.</p>
+        <span class="offer-tag">Browser-based</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <div class="reveal">
+      <div class="label">How it works</div>
+      <h2 style="font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.6rem);letter-spacing:-0.01em;">Three steps from inquiry to live system.</h2>
+    </div>
+    <div class="process-steps">
+      <div class="step reveal">
+        <span class="step-num">01</span>
+        <h3>Diagnose</h3>
+        <p>We map your current workflow — where inquiries are dropping, where manual steps slow your team. I send a focused plan with what to build and a realistic timeline.</p>
+      </div>
+      <div class="step reveal">
+        <span class="step-num">02</span>
+        <h3>Build</h3>
+        <p>I design and build the system from scratch — your brand, your workflow logic, your data structure. Weekly checkpoints so you see progress throughout.</p>
+      </div>
+      <div class="step reveal">
+        <span class="step-num">03</span>
+        <h3>Launch</h3>
+        <p>I deploy, walk your team through using it, and stay available for the first two weeks. Post-launch iteration based on real usage feedback.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIT CHECK -->
+<section id="fit">
+  <div class="container">
+    <div class="reveal">
+      <div class="label">Is this for you?</div>
+      <h2 style="font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.6rem);letter-spacing:-0.01em;margin-bottom:0.5rem;">Fit check before you reach out.</h2>
+      <p style="font-size:0.925rem;color:var(--muted);font-weight:300;max-width:480px;margin-bottom:0;">Honest criteria so we don't waste each other's time.</p>
+    </div>
+    <div class="fit-grid">
+      <div class="fit-box good reveal">
+        <div class="fit-box-label">Good fit</div>
+        <ul class="fit-list">
+          <li>You run a service business that books appointments (salon, clinic, studio, consultancy, etc.)</li>
+          <li>You have recurring volume — at least a few bookings per week</li>
+          <li>You want a system your staff can use daily without technical skills</li>
+          <li>You're ready to invest in a proper build, not a free template</li>
+          <li>You value direct communication with the person building your system</li>
+        </ul>
+      </div>
+      <div class="fit-box bad reveal">
+        <div class="fit-box-label">Not a fit right now</div>
+        <ul class="fit-list">
+          <li>You only need a brochure website with no operational backend</li>
+          <li>You want something delivered in 24–48 hours</li>
+          <li>You're not sure yet what your workflow looks like</li>
+          <li>Budget is under ₱5,000 for a full custom system</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section id="social-proof">
+  <div class="container">
+    <div class="reveal">
+      <div class="label">Feedback</div>
+      <h2 style="font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.6rem);letter-spacing:-0.01em;margin-bottom:0.5rem;">From clients and collaborators.</h2>
+      <p style="font-size:0.925rem;color:var(--muted);font-weight:300;max-width:480px;">Reference details shared on qualified project calls.</p>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial reveal">
+        <blockquote>"The system is clean, detailed, and easy to understand."</blockquote>
+        <cite>Hershey · Student Monitoring Project</cite>
+      </div>
+      <div class="testimonial reveal">
+        <blockquote>"The booking flow made it easier for clients to submit complete details in one go, instead of back-and-forth messaging."</blockquote>
+        <cite>Client feedback · Service Booking Workflow</cite>
+      </div>
+      <div class="testimonial reveal">
+        <blockquote>"The dashboard gave the team a clearer daily view of what needs follow-up and what's already resolved."</blockquote>
+        <cite>Client feedback · Operations Dashboard Build</cite>
+      </div>
+      <div class="testimonial reveal">
+        <blockquote>"Teams report smoother handoffs after replacing scattered spreadsheets with one shared workflow view."</blockquote>
+        <cite>Observed pattern · Post-launch support cycles</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-avatar reveal">
+        <div class="avatar-initials">S</div>
+        <span class="avatar-sub">Shin · Builder</span>
+      </div>
+      <div class="about-right reveal">
+        <div class="label">About</div>
+        <h2>One developer.<br>Your whole system.</h2>
+        <p>I'm Shin (Jeffmathew Garcia) — a full stack web developer based in the Philippines. I design, build, and deploy every system myself, from the database to the interface.</p>
+        <p>You're not passed between a sales team and a delivery team. The same person who understands your booking problem is the one who builds the fix and supports your launch.</p>
+        <p>This is part of Shin.dev — where I build practical web systems for Filipino businesses, including TindaFlow (a POS for small retail) and custom internal tools.</p>
+        <a href="https://itsshin.dev" class="about-link">See all work at itsshin.dev →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-bg"></div>
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-left reveal">
+        <div class="label">Get in touch</div>
+        <h2>Let's build your appointment system.</h2>
+        <p>Tell me about your business and what's not working. I'll get back to you within 24 hours with a focused recommendation — what to build, realistic timeline, and next step.</p>
+        <p>No sales pitch. Just a straight answer on whether I can help and what it would take.</p>
+        <div class="contact-info">
+          <div class="contact-item">
+            <span>📧</span>
+            <a href="mailto:jeffmathewg@gmail.com">jeffmathewg@gmail.com</a>
           </div>
-          <ul class="trust-strip" aria-label="Core operating outcomes">
-            <li>Fewer missed leads</li>
-            <li>Faster first response</li>
-            <li>Clear daily status visibility</li>
-            <li>Founder-led build and handoff</li>
-          </ul>
+          <div class="contact-item">
+            <span>📍</span>
+            <span>Philippines — remote-ready</span>
+          </div>
+          <div class="contact-item">
+            <span>🌐</span>
+            <a href="https://itsshin.dev">itsshin.dev</a>
+          </div>
         </div>
-        <aside class="hero-note reveal" aria-label="Business system preview">
-          <p class="panel-label">What you get</p>
-          <h2>1-page System Plan within 24 hours</h2>
-          <div class="mock-window">
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <div class="mock-row"></div>
-            <div class="mock-row short"></div>
-            <div class="mock-grid">
-              <div></div>
-              <div></div>
-              <div></div>
+      </div>
+
+      <div class="reveal">
+        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" placeholder="Juan dela Cruz" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="juan@email.com" required>
             </div>
           </div>
-          <ul>
-            <li>Current bottleneck diagnosis</li>
-            <li>Recommended build scope and timeline</li>
-            <li>Priority actions to stop lead leakage</li>
-          </ul>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section section--start">
-      <div class="container">
-        <div class="start-flow reveal" aria-label="Start here conversion flow">
-          <p class="panel-label">How this works</p>
-          <ol class="start-steps">
-            <li><strong>Submit your current workflow</strong><span>Tell me where leads are lost: inquiry, follow-up, booking, or status handling.</span></li>
-            <li><strong>Receive your 1-page System Plan</strong><span>I send scope, timeline, and build recommendation matched to your volume and team setup.</span></li>
-            <li><strong>Ship and deploy</strong><span>We launch a usable version fast, then improve based on real usage data.</span></li>
-          </ol>
-          <p class="start-note">No vague proposal decks. Just a clear plan, budget direction, and execution path.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--authority">
-      <div class="container">
-        <h2 class="section-title reveal">Authority and delivery standards</h2>
-        <div class="authority-list">
-          <article class="authority-item reveal">
-            <p class="panel-label">Response SLA</p>
-            <h3>24-hour plan turnaround</h3>
-            <p>Qualified inquiries receive a 1-page System Plan with scope direction, timeline, and budget anchor within one business day.</p>
-          </article>
-          <article class="authority-item reveal">
-            <p class="panel-label">Execution model</p>
-            <h3>Founder-led from scope to launch</h3>
-            <p>You coordinate with one accountable builder from workflow diagnosis through implementation and rollout support.</p>
-          </article>
-          <article class="authority-item reveal">
-            <p class="panel-label">Operating focus</p>
-            <h3>Built for appointment operations</h3>
-            <p>Every module targets a measurable operating step: inquiry capture, booking confirmation, status progression, or follow-up control.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section muted reveal" id="who-for">
-      <div class="container narrow">
-        <h2>Who this is built for</h2>
-        <p>Appointment-based service businesses in the Philippines: clinics, salons, beauty studios, barbershops, repair teams, and home-service operators that need faster follow-up, cleaner booking flow, and reliable admin visibility.</p>
-      </div>
-    </section>
-
-    <section class="section section--offer" id="offer-ladder">
-      <div class="container">
-        <h2 class="section-title reveal">Offer ladder</h2>
-        <p class="section-intro reveal">Three build levels based on your current bottleneck, team capacity, and booking volume.</p>
-        <div class="package-grid">
-          <article class="package-card reveal">
-            <p class="panel-label">Foundation</p>
-            <h3>Lead Capture Foundation</h3>
-            <p class="package-desc"><strong>Starting at PHP 35,000</strong></p>
-            <p>For teams still using chat threads and manual notes for inquiries.</p>
-            <ul>
-              <li><strong>Who it&apos;s for:</strong> Owners with inconsistent inquiry handling</li>
-              <li><strong>Build:</strong> Conversion page, structured inquiry form, lead routing basics</li>
-              <li><strong>Expected outcome:</strong> More complete inquiry data and faster first response</li>
-              <li><strong>Timeline:</strong> 7-10 working days</li>
-            </ul>
-            <a href="#contact" class="btn btn-small">Get 1-page System Plan</a>
-          </article>
-          <article class="package-card package-featured reveal">
-            <p class="panel-label">Operations</p>
-            <h3>Booking + Admin Operations</h3>
-            <p class="package-desc"><strong>Starting at PHP 85,000</strong></p>
-            <p>For teams missing bookings because follow-up and status updates are scattered.</p>
-            <ul>
-              <li><strong>Who it&apos;s for:</strong> Teams with recurring no-shows, missed callbacks, or duplicate logs</li>
-              <li><strong>Build:</strong> Booking workflow, admin dashboard, status tracking, summary reporting</li>
-              <li><strong>Expected outcome:</strong> Fewer missed leads and clearer daily operations</li>
-              <li><strong>Timeline:</strong> 14-21 days</li>
-            </ul>
-            <a href="#contact" class="btn btn-small">Get 1-page System Plan</a>
-          </article>
-          <article class="package-card reveal">
-            <p class="panel-label">Custom System</p>
-            <h3>End-to-End Process System</h3>
-            <p class="package-desc"><strong>Starting at PHP 150,000</strong></p>
-            <p>For operators with multi-step workflows that need integrated handoffs and decision support.</p>
-            <ul>
-              <li><strong>Who it&apos;s for:</strong> Growing teams managing multiple services or branches</li>
-              <li><strong>Build:</strong> Full workflow mapping, custom modules, automation triggers, rollout plan</li>
-              <li><strong>Expected outcome:</strong> Lower admin overhead and better operational control</li>
-              <li><strong>Timeline:</strong> Scoped by complexity</li>
-            </ul>
-            <a href="#contact" class="btn btn-small">Get 1-page System Plan</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--cases" id="case-studies">
-      <div class="container">
-        <h2 class="section-title reveal">Case studies and system implementations</h2>
-        <p class="section-intro reveal">Each entry is labeled by project type and framed around what the workflow is built to improve.</p>
-        <div class="case-stack">
-          <article class="proof-item reveal">
-            <p class="panel-label">Sample System Build · Appointment intake and booking flow</p>
-            <h3>From slow chat replies to structured booking flow</h3>
-            <ul class="proof-list">
-              <li><strong>Problem:</strong> Inquiries were handled in DMs with no queue, causing delayed replies and lost follow-up context.</li>
-              <li><strong>System built:</strong> Conversion-focused inquiry page, booking form with qualification fields, and admin status board.</li>
-              <li><strong>What this system is designed to improve:</strong> Faster first response, more complete inquiry submissions, and clearer daily follow-up tracking.</li>
-            </ul>
-            <a href="primecut-demo/booking.html?src=case_01" class="link-inline">View booking workflow sample</a>
-          </article>
-          <article class="proof-item reveal">
-            <p class="panel-label">Concept Implementation · Operations dashboard workflow</p>
-            <h3>From spreadsheet tracking to daily operations visibility</h3>
-            <ul class="proof-list">
-              <li><strong>Problem:</strong> Team tracked booking status and service progress across scattered spreadsheets, creating duplicate updates and missed callbacks.</li>
-              <li><strong>System built:</strong> Unified admin dashboard with status pipeline, daily summary view, and searchable records.</li>
-              <li><strong>What this system is designed to improve:</strong> Lower admin update workload, fewer missed callbacks, and clearer handoff visibility for operators.</li>
-            </ul>
-            <a href="primecut-demo/admin.html?src=case_02" class="link-inline">View admin workflow sample</a>
-          </article>
-          <article class="proof-item reveal">
-            <p class="panel-label">Sample System Build · Founder-led delivery model</p>
-            <h3>How builds are delivered</h3>
-            <ul class="proof-list">
-              <li><strong>Problem:</strong> Projects fail when scope, handoff, and ownership are unclear between strategy and implementation.</li>
-              <li><strong>System built:</strong> Founder-led workflow from diagnosis to launch with defined modules, rollout sequencing, and operator onboarding support.</li>
-              <li><strong>What this system is designed to improve:</strong> Clearer project execution, faster usable launch, and fewer delivery misunderstandings.</li>
-            </ul>
-            <a href="#contact" class="link-inline">Request your build roadmap</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--demo" id="demo">
-      <div class="container">
-        <h2 class="section-title reveal">Live workflow demonstration</h2>
-        <p class="section-intro reveal">See how inquiry capture, booking, and admin operations connect inside one system.</p>
-        <div class="demo-wrap reveal">
-        <div class="demo-aside" role="img" aria-label="PrimeCut Barbershop demo system preview">
-          <div class="demo-top">
-            <span></span>
-            <span></span>
-            <span></span>
+          <div class="form-group">
+            <label for="business-type">Business type</label>
+            <input type="text" id="business-type" name="business_type" placeholder="e.g., Barbershop, Clinic, Photography studio" required>
           </div>
-          <span>PrimeCut business system</span>
-          <ul class="demo-points">
-            <li>Customer booking form</li>
-            <li>Admin operations dashboard</li>
-            <li>Daily booking and sales summary</li>
-          </ul>
-        </div>
-        <div class="demo-copy">
-          <h2>Inspect the workflow before you inquire</h2>
-          <p>This demo shows the exact system pattern used for appointment-based businesses: customer intake, booking confirmation, and internal status management.</p>
-          <p class="demo-caption">Use this to evaluate if the workflow model fits your operations before requesting a build plan.</p>
-          <p class="demo-flow"><strong>Suggested flow:</strong> Landing &rarr; Booking &rarr; Admin Dashboard</p>
-          <ul class="demo-proves">
-            <li>Shows lead data structure from first submission</li>
-            <li>Demonstrates booking-to-status lifecycle handling</li>
-            <li>Validates operator visibility for daily decision-making</li>
-          </ul>
-          <div class="demo-actions">
-            <a href="#contact" class="btn btn-small">Get 1-page System Plan</a>
-            <a href="primecut-demo/booking.html?src=demo_section" class="btn btn-small btn-ghost">View booking workflow</a>
-            <a href="primecut-demo/admin.html?src=demo_section" class="btn btn-small btn-ghost">View admin workflow</a>
+          <div class="form-group">
+            <label for="goal">Main goal</label>
+            <select id="goal" name="main_goal" required>
+              <option value="">What do you need most?</option>
+              <option value="online-booking">Online booking page for clients</option>
+              <option value="admin-view">Admin view to manage appointments</option>
+              <option value="both">Both — full booking system</option>
+              <option value="advice">Not sure yet — need advice</option>
+            </select>
           </div>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--values" id="credibility">
-      <div class="container">
-        <h2 class="section-title reveal">Why owners choose a founder-led build</h2>
-        <p class="section-intro reveal">You work directly with the person designing the system logic and implementing the workflow.</p>
-        <div class="values-grid">
-          <article class="value-item reveal">
-            <h3>Direct accountability</h3>
-            <p>No handoff chain between sales and delivery. Scope decisions, implementation, and revisions stay aligned from day one.</p>
-          </article>
-          <article class="value-item reveal">
-            <h3>Workflow-first architecture</h3>
-            <p>Every module is tied to an operations step: inquiry, booking, fulfillment status, or reporting decision.</p>
-          </article>
-          <article class="value-item reveal">
-            <h3>Fast usable release</h3>
-            <p>First usable version launches quickly, then evolves using real bottleneck feedback from your team.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section muted" id="testimonials">
-      <div class="container">
-        <h2 class="section-title reveal">Client feedback and operating signals</h2>
-        <p class="section-intro reveal">Feedback is collected after delivery and paired with workflow outcomes where available.</p>
-        <p class="section-note reveal">Reference details can be discussed during qualified project calls.</p>
-        <div class="testimonial-grid">
-          <article class="testimonial-item reveal">
-            <p class="testimonial-quote">&ldquo;The system is clean, detailed, and easy to understand.&rdquo;</p>
-            <p class="testimonial-meta"><strong>Hershey</strong> &middot; Student Monitoring Project</p>
-          </article>
-          <article class="testimonial-item reveal">
-            <p class="testimonial-quote">The booking flow made it easier for clients to submit complete details in one go, instead of back-and-forth messaging.</p>
-            <p class="testimonial-meta"><strong>Client feedback</strong> &middot; Service Booking Workflow</p>
-          </article>
-          <article class="testimonial-item reveal">
-            <p class="testimonial-quote">The dashboard structure gave the team a clearer daily view of what needs follow-up and what is already resolved.</p>
-            <p class="testimonial-meta"><strong>Client feedback</strong> &middot; Operations Dashboard Build</p>
-          </article>
-          <article class="testimonial-item reveal">
-            <p class="testimonial-quote">Teams usually report smoother handoffs after replacing scattered spreadsheets with one shared workflow view.</p>
-            <p class="testimonial-meta"><strong>Observed pattern</strong> &middot; Post-launch support cycles</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="process">
-      <div class="container">
-        <h2 class="section-title reveal">Process</h2>
-        <div class="step-grid">
-          <article class="step reveal">
-            <span class="step-num">01</span>
-            <h3>Diagnose</h3>
-            <p>Map where inquiries are dropped and where manual steps slow your team down.</p>
-          </article>
-          <article class="step reveal">
-            <span class="step-num">02</span>
-            <h3>Build</h3>
-            <p>Implement your scoped workflow with clear module outcomes and weekly delivery checkpoints.</p>
-          </article>
-          <article class="step reveal">
-            <span class="step-num">03</span>
-            <h3>Operationalize</h3>
-            <p>Launch with onboarding, usage guidance, and iteration priorities based on real team usage.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section muted reveal" id="fit">
-      <div class="container narrow">
-        <h2>Fit check before you apply</h2>
-        <p><strong>Best fit:</strong> You run an appointment-based business, you have recurring inquiry volume, and you need a system your team can use daily without technical overhead.</p>
-        <p><strong>Not a fit right now:</strong> You only need a visual brochure site, want same-day rush delivery, or are not ready to invest in workflow implementation.</p>
-        <p><strong>What to expect:</strong> Clear scope, direct communication with me as founder-builder, and timeline commitments based on actual complexity.</p>
-      </div>
-    </section>
-
-    <section class="section reveal" id="about">
-      <div class="container narrow">
-        <h2>Founder-led by design</h2>
-        <p>I&apos;m Jeffmathew Garcia, founder of JM Studio. I work directly with owners and operators to design and build systems that improve inquiry handling, booking reliability, and operational visibility.</p>
-        <p>You are not passed between strategy and delivery teams. The same person who diagnoses your bottleneck builds the system and supports your rollout.</p>
-      </div>
-    </section>
-
-    <section class="section cta-section" id="contact">
-      <div class="container contact-wrap reveal">
-        <div class="contact-copy">
-          <h2>Request your 1-page System Plan</h2>
-          <p>Share your current workflow and I&apos;ll send a focused plan with bottleneck diagnosis, recommended build level, budget anchor, and rollout timeline.</p>
-          <p class="response-note">Response in 24 hours: scope recommendation, realistic timeline, and next step.</p>
-          <div class="quick-links">
-            <a href="mailto:jmstudiohq@gmail.com" class="quick-link">Primary contact: Email</a>
-            <a href="https://m.me/jepmachu" target="_blank" rel="noopener noreferrer" class="quick-link">Messenger</a>
+          <div class="form-group">
+            <label for="timeline">Timeline</label>
+            <select id="timeline" name="preferred_timeline">
+              <option value="">When do you need this?</option>
+              <option value="asap">As soon as possible</option>
+              <option value="2weeks">Within 2 weeks</option>
+              <option value="1month">Within 1 month</option>
+              <option value="exploring">Just exploring for now</option>
+            </select>
           </div>
-          <p class="contact-trust">If your business is appointment-based and you want execution, this form is the fastest path.</p>
-        </div>
-        <form class="contact-form" action="https://formspree.io/f/mdayprkg" method="POST">
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" required>
-
-          <label for="business-type">Business type</label>
-          <input id="business-type" name="business_type" type="text" placeholder="e.g., Barbershop, Clinic, Online Store" required>
-
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required>
-
-          <label for="main-goal">Main goal</label>
-          <select id="main-goal" name="main_goal" required>
-            <option value="">Select your main goal</option>
-            <option value="Get more bookings">Get more bookings</option>
-            <option value="Faster follow-up">Faster follow-up</option>
-            <option value="Track operations">Track operations</option>
-            <option value="Need advice">Need advice on what to build</option>
-          </select>
-
-          <label for="timeline">Preferred timeline</label>
-          <select id="timeline" name="preferred_timeline" required>
-            <option value="">Select timeline</option>
-            <option value="ASAP">ASAP</option>
-            <option value="Within 2 weeks">Within 2 weeks</option>
-            <option value="Within 1 month">Within 1 month</option>
-            <option value="Just exploring">Just exploring for now</option>
-          </select>
-
-          <label for="message">Current workflow issue and target outcome</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-
-          <input type="hidden" name="_subject" value="1-page System Plan request - JM Studio">
-          <input type="hidden" name="lead_source" value="website_main">
-          <input type="hidden" name="page_variant" value="systems_studio_v2_founder_led">
-          <input type="hidden" name="referrer" id="referrer-field" value="">
-          <input type="hidden" name="landing_path" id="landing-path-field" value="">
-          <input type="hidden" name="campaign_source" id="campaign-source-field" value="">
-
-          <button type="submit" class="btn">Get my 1-page System Plan</button>
-          <p class="form-note">By submitting, you confirm you&apos;re requesting a workflow build recommendation, not a free full system implementation.</p>
+          <div class="form-group">
+            <label for="message">Describe your current workflow and the problem you want solved</label>
+            <textarea id="message" name="message" rows="4" placeholder="e.g., Clients book through Messenger, we confirm manually, sometimes we miss bookings on weekends..." required></textarea>
+          </div>
+          <input type="hidden" name="_subject" value="Appointment System Inquiry — Shin.dev">
+          <input type="hidden" name="lead_source" value="appointment.itsshin.dev">
+          <button type="submit" class="btn-submit">Send message →</button>
+          <p class="form-note">I'll reply within 24 hours with a clear next step — not a sales call you didn't ask for.</p>
         </form>
       </div>
-    </section>
-
-    <section class="section trust-footer-section">
-      <div class="container trust-footer">
-        <p><strong>Primary market:</strong> Appointment-based businesses in the Philippines (remote-ready collaboration)</p>
-        <p><strong>Business email:</strong> <a href="mailto:jmstudiohq@gmail.com">jmstudiohq@gmail.com</a></p>
-        <p><a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Service</a></p>
-      </div>
-    </section>
-  </main>
-
-  <div class="mobile-cta" aria-label="Quick contact actions">
-    <a href="index.html?src=mobile_cta#contact" class="btn btn-small">Get 1-page System Plan</a>
-    <a href="mailto:jmstudiohq@gmail.com" class="btn btn-small btn-ghost">Email</a>
+    </div>
   </div>
+</section>
 
-  <script src="assets/js/main.js"></script>
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">Shin<span>.</span>dev</div>
+      <div class="footer-links">
+        <a href="https://itsshin.dev">Main site</a>
+        <a href="https://tindaflow.itsshin.dev">TindaFlow</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-copy">© 2026 Shin.dev · Jeffmathew Garcia</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 70);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+reveals.forEach(r => observer.observe(r));
+
+// Form feedback
+const form = document.querySelector('.contact-form');
+if (form) {
+  form.addEventListener('submit', () => {
+    const btn = form.querySelector('.btn-submit');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+  });
+}
+</script>
 </body>
 </html>
